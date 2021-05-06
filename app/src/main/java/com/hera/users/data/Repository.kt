@@ -5,7 +5,7 @@ import com.hera.users.data.network.RetrofitInstance
 
 object Repository {
 
-    suspend fun getUser(): UserResponse {
-        return RetrofitInstance.api.getUsers()
+    suspend fun getUser(page: Int): UserResponse {
+        return RetrofitInstance.api.getUsers(page)
     }
 }

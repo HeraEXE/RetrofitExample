@@ -9,9 +9,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.hera.users.R
-import com.hera.users.data.models.UserResponse
+import com.hera.users.data.models.Data
 
-class UserAdapter(private val users: MutableLiveData<UserResponse>)
+class UserAdapter(private val users: MutableLiveData<List<Data>>)
     : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
@@ -28,11 +28,11 @@ class UserAdapter(private val users: MutableLiveData<UserResponse>)
     }
 
     override fun getItemCount(): Int {
-        return users.value?.data?.size ?: 0
+        return users.value?.size ?: 0
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val userData = users.value?.data?.get(position)
+        val userData = users.value?.get(position)
 
         Glide.with(holder.view)
                 .load(userData?.avatar)

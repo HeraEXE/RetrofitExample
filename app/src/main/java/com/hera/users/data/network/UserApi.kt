@@ -9,6 +9,6 @@ interface UserApi {
     @GET("api/users")
     suspend fun getUsers(
         @Query("page")
-        page: Int = 1
+        page: Int
     ): UserResponse
 }
